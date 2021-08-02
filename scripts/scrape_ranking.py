@@ -22,10 +22,10 @@ class MapleLegendsRankingSpider(scrapy.Spider):
     handle_httpstatus_list = [301, 302]
     custom_settings = {
         "DOWNLOAD_DELAY": 0.25,
-        "CONCURRENT_REQUESTS_PER_DOMAIN": 4,
+        "CONCURRENT_REQUESTS_PER_DOMAIN": 2,
     }
 
-    def __init__(self, pages=1, category="all", *args, **kwargs):
+    def __init__(self, pages=1, page_offset="0", category="all", *args, **kwargs):
         super(MapleLegendsRankingSpider, self).__init__(*args, **kwargs)
         first = get_ranking(1, category)
         total = parse_total(first)
@@ -33,6 +33,8 @@ class MapleLegendsRankingSpider(scrapy.Spider):
         self.start_urls = [
             f"https://maplelegends.com/ranking/{category}?page={page+1}"
             for page in range(math.ceil(total / 5))
+            # for starting off again
+            if page >= int(page_offset)
         ]
 
     # useful link: https://stackoverflow.com/a/43497095

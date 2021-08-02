@@ -14,4 +14,7 @@ scrapy runspider scripts/scrape_ranking.py -a category=magician -o data/magician
 scrapy runspider scripts/scrape_levels.py -a ranking=data/islander_ranking_20210521.json -o data/islander_levels_20210521.json
 
 scrapy runspider scripts/scrape_levels.py -a ranking=data/magician_ranking_20210521.json -o data/magician_levels_20210521.json
+
+# 2021-07-31 full scrape
+scrapy runspider scripts/scrape_ranking.py -a category=all -o data/all_ranking_20210731.json
 ```

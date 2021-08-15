@@ -1,1 +1,1 @@
-gsutil -m rsync data/ gs://geospiza/ml-player-growth/
+gsutil -m rsync -r data/ gs://geospiza/ml-player-growth/

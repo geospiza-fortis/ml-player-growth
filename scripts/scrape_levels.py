@@ -10,7 +10,7 @@ class MapleLegendsLevelingHistorySpider(scrapy.Spider):
     handle_httpstatus_list = [301, 302]
     custom_settings = {
         "DOWNLOAD_DELAY": 0.25,
-        "CONCURRENT_REQUESTS_PER_DOMAIN": 4,
+        "CONCURRENT_REQUESTS_PER_DOMAIN": 2,
     }
 
     def __init__(self, ranking, *args, **kwargs):
